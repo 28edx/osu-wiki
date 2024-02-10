@@ -1,8 +1,3 @@
----
-outdated_translation: true
-outdated_since: 4390338dba70d8ad149f01408d623120cdc6aa96
----
-
 # Actualizarea la lazer
 
 *Atenție: Încă încercăm să ne dăm seama cum să balansăm jocul și mecanicile lui. Momentan, **scorurile realizate pe lazer trebuie să nu fie considerate finale**.*
@@ -76,11 +71,11 @@ Lista de mai jos conține o înșiruire cuprinzătoare asupra **stării actuale*
 
 | Funcție | stable | lazer |
 | :-- | :-- | :-- |
-| Actualizare scoruri | ![Da][true] | ![Parțial][partial][^score-reset-balance] |
-| Clasament scoruri beatmap | ![Da][true] | ![Parțial][partial][^score-reset-isolated] |
+| Actualizare scoruri | ![Da][true] | ![Parțial][partial][^score-reset] |
+| Clasament scoruri beatmap | ![Da][true] | ![Parțial][partial][^score-reset] |
 | Statistici profil | ![Da][true] | ![Da][true] |
 | Medalii | ![Da][true] | ![Nu][false] |
-| Puncte de performanță | ![Da][true] | ![Parțial][partial][^score-reset-isolated] |
+| Puncte de performanță | ![Da][true] | ![Parțial][partial][^score-reset] |
 | Chat în timp real | ![Parțial][partial][^stable-chat] | ![Da][true] |
 | Wiki / noutăți / actualizări / clasamente | ![Nu][false] | ![Da][true][^online-content] |
 | Profiluri de utilizator | ![Nu][false] | ![Da][true] |
@@ -106,7 +101,7 @@ Lista de mai jos conține o înșiruire cuprinzătoare asupra **stării actuale*
 | Volum / SV per-obiect | ![Nu][false] | ![Da][true] |
 | Tipuri de curbe de slidere per-segment | ![Nu][false] | ![Da][true] |
 | Tăiere și legare slidere | ![Nu][false] | ![Da][true] |
-| Rotire pattern-uri | ![Da][true] | ![Parțial][partial][^editor-precise-rotation] |
+| Rotire pattern-uri | ![Da][true] | ![Da][true] |
 | Redimensionare pattern-uri | ![Nu][false] | ![Da][true] |
 | Încărcare beatmap-uri | ![Da][true] | ![Nu][false] |
 | Editor storyboard | ![Da][true] | ![Nu][false] |
@@ -158,17 +153,17 @@ Totuși, scorurile individuale și beatmap-urile pot fi transferate din lazer ș
 
 #### Dacă realizez un scor pe lazer, o să-mi apară pe profil?
 
-Scorurile vor apărea în secțiunea „încercări recente” dar nu în „performanțe de top”, încă.
+Da, dar nu va apărea în secțiunea „perfromanțe de top” cu „lazer mode” dezactivat pe site.
+
+Pe lângă asta, momentan nu vor apărea în secțiunea „primele locuri”.
 
 #### Dacă realizez un scor pe lazer, voi primi puncte de performanță?
 
-Secțiunea „încercări recente” din profil arată scorurile realizare în lazer împreună cu punctele de performanță calculate, iar totalul adunat îl poți vedea atunci când ții cursorul deasupra punctelor tale de performanță totale.
-
-Pe lângă asta, [lazer.ppy.sh](https://lazer.ppy.sh/home), versiunea experimentală a site-ului osu!, arată toate scorurile lazer.
+Da, cu precizarea că scorurile pot fi șterse în viitor.
 
 #### Lazer folosește ScoreV2?
 
-Da, lazer folosește un sistem de scor bazat pe niște ajustări. Scorurile realizate pe ScoreV1 vor fi convertite în viitor.
+Folosesște un sistem de punctaj bazat pe asta, cu unele ajustări.
 
 <!-- lint ignore no-heading-punctuation -->
 
@@ -176,17 +171,53 @@ Da, lazer folosește un sistem de scor bazat pe niște ajustări. Scorurile real
 
 De fapt, poți modifica acest aspect folosind setarea `Mod afișare scor`, în care alegi `Clasic` pentru a avea stilul exploziv de scor! Nu va fi unu la unu, dar ar trebui să se simtă ca și înainte și va fi aplicat oriunde te-ai aștepta.
 
+Scorurile de pe clasamentele globale vor folosi, de asemenea, scorul clasic
+
 #### Dacă realizez un scor lazer, va rămâne așa cum este?
 
 Noi facem tot posibilul ca scorurile să rămână așa cum sunt, dar **nu putem oferii certitudinea că scorurile vor rămâne la fel definitiv**. În orice moment putem reseta orice scor sau toate scorurile pentru a menține balansul jocului.
 
 #### Scorurile realizate pe stable vor fi prezente și în lazer?
 
-Da. Imediat cum terminăm balansarea scorurilor combinate din lazer și stable, ambele vor fi vizibile.
+Da.
+
+#### Scorurile realizate pe lazer vor fi prezente și în stable?
+
+Momentan nu.
 
 #### Toate mod-urile vor fi clasate?
 
-Pentru moment, scorurile realizate cu orice combinație de mod-uri vor fi vizibile în clasamente. Aspectul dacă scorurile vor da puncte de performanță cu toate mod-urile (și dacă da, dacă va exista un bonus sau o penalizare) este încă în discuție.
+Scorurile tuturor combinațiilor de mod-uri apar în clasamente.
+
+Cu toate acestea, deocamdată, doar următoarele mod-uri vor acorda puncte de performanță:
+
+- Reducerea dificultății
+    - Easy
+    - No Fail
+    - Half Time (doar 0.75x)
+    - Daycore (doar 0.75x)
+- Creșterea dificultății
+    - Hard Rock (nu pentru osu!mania)
+    - Sudden Death
+    - Perfect
+    - Hidden
+    - Nightcore (doar 1.5x)
+    - Double Time (doar 1.5x)
+    - Flashlight
+- Conversie (doar osu!mania)
+    - Mirror
+    - Four Keys
+    - Five Keys
+    - Six Keys
+    - Seven Keys
+    - Eight Keys
+    - Nine Keys
+- Distracție
+    - Muted
+- Atuomare (doar osu!)
+    - Spun out
+- Sistem
+    - Touch Device
 
 #### Nu-mi plac noile mecanici de joc. Pot să folosesc vechile mecanici de joc precum în stable?
 
@@ -220,7 +251,7 @@ De asemenea, poți să [citești acest document detaliat](https://github.com/ppy
 
 #### Dacă input-ul este obținut la doar 1.000 Hz, ce se va întâmpla cu mouse-ul meu de gaming cu 8.000 Hz?
 
-Sistemul de operare va continua să permită aceste rate mai mari, dar beneficile au fost dovedite a fi neglijabile. Asemenea rate mari de actualizare poate avea supracosturi neprevăzute și îți recomandăm să îți limitezi perifericele la o rată de maxim 1.000 Hz pentru stabilitatea sistemului. 
+Sistemul de operare va continua să permită aceste rate mai mari, dar beneficile au fost dovedite a fi neglijabile. Asemenea rate mari de actualizare poate avea supracosturi neprevăzute și îți recomandăm să îți limitezi perifericele la o rată de maxim 1.000 Hz pentru stabilitatea sistemului.
 
 #### Lazer rulează mai greu decât stable pentru mine. De ce?
 
@@ -295,8 +326,7 @@ Cred că ai greșit jocul.
 [^offset-calibration-lazer]: Când reîncerci un beatmap, poți calibra offset-ul bazat pe ultima ta încercare.
 [^can-disable]: Poate fi dezactivat.
 [^note-lock]: Încă există, dar nu ar trebui să încurce.
-[^score-reset-balance]: Scorurile vor fi resetate pentru a balansa jocul.
-[^score-reset-isolated]: Scorurile vor fi resetate, momentan izolate de scorurile stable.
+[^score-reset]: Scorurile ar putea fi resetate.
 [^online-content]: Acces în joc la majoritatea informațiilor de pe site.
 [^direct-supporter]: Prin osu!direct, doar ca suporter osu!.
 [^supporter]: Doar ca suporter osu!.
@@ -304,7 +334,6 @@ Cred că ai greșit jocul.
 [^multi-room-max]: Maxim 16 jucători.
 [^map-only]: Doar beatmap-ul.
 [^all-files]: Toate fișierele.
-[^editor-precise-rotation]: Lipsă funcție de rotație precisă.
 [^incompatibilities]: Unele funcții în editor vor cauza beatmap-urile să ruleze greșit în stable - va fi rezolvat în curând.
 [^stable-chat]: Mesajele trimise pot dura până la 15 secunde să apară.
 [^countdown-timers-stable]: Setează un cronometru cu numărătoare inversă printr-o comandă, fără a începe automat meciul.
