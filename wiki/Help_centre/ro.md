@@ -27,7 +27,7 @@ Alege secțiunea care se potrivește cel mai bine cu problema ta pentru a găsi 
 | [Magazin](/wiki/Help_centre/Store) | Produse, osu!go, osu!keyboard, osu!tablet |
 | [Interdicții turnee](/wiki/Help_centre/Tournament_bans) | Totul despre interdicții turnee, prezentare generală, motive comune și durate |
 | [Actualizarea la lazer](/wiki/Help_centre/Upgrading_to_lazer) | Migrarea la [următoarea versiune semnificativă](/wiki/Client/Release_stream/Lazer) osu! |
-| [Site](/wiki/Help_centre/Website) | Blocarea utilizatorilor, contactarea suportului, aparența site-ului |
+| [Site web](/wiki/Help_centre/Website) | Blocarea utilizatorilor, contactarea suportului, aparența site-ului |
 
 ## Ajută-ne să te ajutăm {id=diagnostics}
 
